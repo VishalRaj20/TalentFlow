@@ -97,17 +97,17 @@ export default function HomePage() {
       initial="hidden"
       animate="visible"
       variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
-      className="space-y-20 pb-20"
+      className="space-y-16 sm:space-y-20 pb-20"
     >
     
       <motion.header
         variants={itemVariants}
-        className="text-center py-20 rounded-3xl bg-gradient-to-r from-purple-600/40 via-sky-500/30 to-blue-500/40 shadow-lg backdrop-blur-xl border border-white/20"
+        className="text-center py-12 sm:py-20 rounded-3xl bg-gradient-to-r from-purple-600/40 via-sky-500/30 to-blue-500/40 shadow-lg backdrop-blur-xl border border-white/20"
       >
-        <h1 className="text-6xl font-extrabold text-white mb-6 drop-shadow-lg">
+        <h1 className="text-4xl sm:text-6xl font-extrabold text-white mb-6 drop-shadow-lg">
           TalentFlow Dashboard
         </h1>
-        <p className="text-xl max-w-3xl mx-auto text-gray-200">
+        <p className="text-lg sm:text-xl max-w-3xl mx-auto text-gray-200 px-4">
           Manage hiring workflows with a beautiful and powerful interface.
         </p>
       </motion.header>
@@ -115,14 +115,14 @@ export default function HomePage() {
       <section>
         <motion.h2
           variants={itemVariants}
-          className="text-3xl font-bold mb-8 text-white"
+          className="text-2xl sm:text-3xl font-bold mb-8 text-white"
         >
           Overview
         </motion.h2>
 
         <motion.div
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
         >
           <StatCard title="Total Jobs" value={stats?.jobs} linkTo="/jobs" loading={loading} />
           <StatCard title="Candidates" value={stats?.cands} linkTo="/candidates" loading={loading} />
@@ -134,14 +134,14 @@ export default function HomePage() {
       <section>
         <motion.h2
           variants={itemVariants}
-          className="text-3xl font-bold mb-10 text-white"
+          className="text-2xl sm:text-3xl font-bold mb-10 text-white"
         >
           Manage Workflow
         </motion.h2>
 
         <motion.div
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-3 gap-10"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10"
         >
           <FeatureCard
             to="/jobs"

@@ -21,7 +21,7 @@ const headerVariants = {
 };
 
 export default function CandidatesPage() {
-  const [viewMode, setViewMode] = useState('list'); 
+  const [viewMode, setViewMode] = useState('list');
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -131,7 +131,7 @@ export default function CandidatesPage() {
       >
         <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Candidates</h1>
         
-        <div className="flex items-center justify-between md:justify-end gap-2 w-full">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between md:justify-end gap-4 sm:gap-2 w-full">
           <div className="relative w-full sm:w-64">
             <input
               value={search}
@@ -150,10 +150,10 @@ export default function CandidatesPage() {
             )}
           </div>
 
-          <div className="flex-shrink-0 p-1 bg-gray-700 rounded-lg">
+          <div className="flex-shrink-0 p-1 bg-gray-700 rounded-lg flex">
             <button
               onClick={() => setViewMode('list')}
-              className={`px-3 py-1 rounded-md text-sm font-medium cursor-pointer ${
+              className={`w-1/2 sm:w-auto px-3 py-1 rounded-md text-sm font-medium ${
                 viewMode === 'list' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:text-white'
               }`}
             >
@@ -161,7 +161,7 @@ export default function CandidatesPage() {
             </button>
             <button
               onClick={() => setViewMode('kanban')}
-              className={`px-3 py-1 rounded-md text-sm font-medium cursor-pointer ${
+              className={`w-1/2 sm:w-auto px-3 py-1 rounded-md text-sm font-medium ${
                 viewMode === 'kanban' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:text-white'
               }`}
             >
@@ -225,7 +225,7 @@ export default function CandidatesPage() {
             </AnimatePresence>
           </div>
           
-          <div className="flex justify-between items-center pt-4">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 pt-4">
             <button
               onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
               disabled={currentPage === 1}
@@ -233,7 +233,7 @@ export default function CandidatesPage() {
             >
               Previous
             </button>
-            <span className="text-gray-400">
+            <span className="text-gray-400 text-sm">
               Page {currentPage} of {paginatedCandidates.totalPages} ({paginatedCandidates.totalCount} results)
             </span>
             <button
@@ -246,7 +246,7 @@ export default function CandidatesPage() {
           </div>
         </>
       ) : (
-        <div className="-mx-6">
+        <div className="-mx-4 sm:-mx-6">
           <CandidateKanban
             stages={KANBAN_STAGES}
             candidatesByStage={candidatesByStage}

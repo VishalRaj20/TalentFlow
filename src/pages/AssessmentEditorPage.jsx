@@ -66,13 +66,13 @@ export default function AssessmentEditorPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+      <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 bg-white p-4 rounded-lg shadow-sm border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
         <div>
           <h1 className="text-2xl font-semibold">Assessment Editor</h1>
           <p className="text-sm text-gray-500 dark:text-gray-400">Job ID: {jobId}</p>
         </div>
-        <div className="flex items-center gap-4">
-          <span className="text-sm text-gray-600 dark:text-gray-300 transition-opacity duration-300">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+          <span className="text-sm text-gray-600 dark:text-gray-300 transition-opacity duration-300 h-full flex items-center">
             {status}
           </span>
           <button

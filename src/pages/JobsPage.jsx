@@ -133,11 +133,11 @@ export default function JobsPage() {
       initial="hidden"
       animate="visible"
     >
-      <motion.div variants={itemVariants} className="flex justify-between items-center">
+      <motion.div variants={itemVariants} className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
         <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Jobs</h1>
         <button
           onClick={openCreateModal} 
-          className="flex items-center gap-2 px-4 py-2 bg-sky-600 text-white rounded-md font-medium shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+          className="flex items-center justify-center gap-2 px-4 py-2 bg-sky-600 text-white rounded-md font-medium shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 w-full sm:w-auto"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" /></svg>
           New Job
@@ -146,9 +146,9 @@ export default function JobsPage() {
 
       <motion.div 
         variants={itemVariants}
-        className="p-4 bg-white rounded-lg shadow-sm border border-gray-200 dark:bg-gray-800 dark:border-gray-700 flex items-center gap-4"
+        className="p-4 bg-white rounded-lg shadow-sm border border-gray-200 dark:bg-gray-800 dark:border-gray-700 flex flex-col sm:flex-row items-center gap-4"
       >
-        <div className="relative flex-grow">
+        <div className="relative flex-grow w-full">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <SearchIcon />
           </div>
@@ -163,7 +163,7 @@ export default function JobsPage() {
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-white focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
+          className="w-full sm:w-auto px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-white focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
         >
           <option value="">All Statuses</option>
           <option value="open">Open</option>
