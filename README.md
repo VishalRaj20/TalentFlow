@@ -67,7 +67,7 @@ You must have [Node.js](https://nodejs.org/) (v18 or newer) and `npm` or `yarn` 
 
 1.  **Clone the repository:**
     ```sh
-    git clone (your-repo-url)
+    git clone https://github.com/VishalRaj20/TalentFlow.git
     ```
 2.  **Navigate to the project directory:**
     ```sh
