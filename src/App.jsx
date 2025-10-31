@@ -1,8 +1,11 @@
 import { Suspense, lazy, useEffect } from "react";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, Link, useLocation, Outlet } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Spinner } from "./components/ui/Spinner";
 import PageLayout from "./components/PageLayout";
+import { useAuth } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
+import LoginPage from "./pages/LoginPage";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const JobsPage = lazy(() => import("./pages/JobsPage"));
@@ -12,8 +15,9 @@ const CandidatePage = lazy(() => import("./pages/CandidatePage"));
 const AssessmentsPage = lazy(() => import("./pages/AssessmentsPage"));
 const AssessmentEditorPage = lazy(() => import("./pages/AssessmentEditorPage"));
 
-export default function App() {
+function MainLayout() {
   const location = useLocation();
+  const { logout } = useAuth();
 
   useEffect(() => {
     document.documentElement.classList.add("dark");
@@ -27,11 +31,17 @@ export default function App() {
             TalentFlow
           </Link>
           <div className="flex items-center space-x-6">
-            <nav className="space-x-6 font-medium text-xl text-gray-700 dark:text-gray-300">
+            <nav className="space-x-4 font-medium text-lg text-gray-700 dark:text-gray-300">
               <Link to="/jobs" className="hover:text-sky-600 transition">Jobs</Link>
               <Link to="/candidates" className="hover:text-sky-600 transition">Candidates</Link>
               <Link to="/assessments" className="hover:text-sky-600 transition">Assessments</Link>
             </nav>
+            <button
+              onClick={logout}
+              className="px-4 py-2 bg-gray-700 text-white rounded-lg text-sm font-medium hover:bg-gray-600 transition"
+            >
+              Log Out
+            </button>
           </div>
         </div>
       </header>
@@ -68,5 +78,21 @@ export default function App() {
         </div>
       </footer>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/login" element={<LoginPage />} />
+      <Route 
+        path="/*" 
+        element={
+          <ProtectedRoute>
+            <MainLayout />
+          </ProtectedRoute>
+        } 
+      />
+    </Routes>
   );
 }

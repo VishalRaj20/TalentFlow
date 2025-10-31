@@ -5,6 +5,7 @@ import App from "./App";
 import "./index.css"
 
 import { initDB } from "./db/indexedDB";
+import { AuthProvider } from "./context/AuthContext";
 
 async function enableMocking() {
   const { worker } = await import("./mocks/browser");
@@ -17,7 +18,9 @@ enableMocking().then(() => {
     root.render(
       <React.StrictMode>
         <BrowserRouter>
-          <App />
+          <AuthProvider>
+            <App />
+          </AuthProvider>
         </BrowserRouter>
       </React.StrictMode>
     );
