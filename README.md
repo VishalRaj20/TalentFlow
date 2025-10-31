@@ -6,7 +6,7 @@ The entire application runs in your browser with no backend. It uses **Mock Serv
 
 ### Live Demo Link
 
-**(Your deployed link would go here)**
+https://talent-flow-vishal.vercel.app/
 
 ---
 
