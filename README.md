@@ -12,6 +12,7 @@ https://talent-flow-vishal.vercel.app/
 
 ## Features
 
+* **Login System:** Secure, hardcoded login page protects the entire application.
 * **Animated Home Dashboard:** The home page serves as a fully animated dashboard displaying "at a glance" stats for total jobs, candidates, new applicants, and assessments.
 * **Job Management:**
     * Create, Read, Edit, and Archive jobs.
@@ -48,10 +49,14 @@ https://talent-flow-vishal.vercel.app/
 * **Utilities:** `nanoid`, `dayjs`
 
 ---
-
 ## Login & Access
 
-This project does not feature a login or authentication system. All pages are publicly accessible by default. **No credentials are required** to access any part of the application.
+This application requires login credentials for access. No sign-up or registration is necessary.
+
+Please use the following credentials to log in:
+
+* **Username:** `admin`
+* **Password:** `password123`
 
 ---
 
@@ -67,7 +72,7 @@ You must have [Node.js](https://nodejs.org/) (v18 or newer) and `npm` or `yarn` 
 
 1.  **Clone the repository:**
     ```sh
-    git clone https://github.com/VishalRaj20/TalentFlow.git
+    git clone (your-repo-url)
     ```
 2.  **Navigate to the project directory:**
     ```sh
