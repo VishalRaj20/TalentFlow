@@ -21,7 +21,7 @@ const headerVariants = {
 };
 
 export default function CandidatesPage() {
-  const [viewMode, setViewMode] = useState('list'); // 'list' or 'kanban'
+  const [viewMode, setViewMode] = useState('list'); 
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -153,7 +153,7 @@ export default function CandidatesPage() {
           <div className="flex-shrink-0 p-1 bg-gray-700 rounded-lg">
             <button
               onClick={() => setViewMode('list')}
-              className={`px-3 py-1 rounded-md text-sm font-medium ${
+              className={`px-3 py-1 rounded-md text-sm font-medium cursor-pointer ${
                 viewMode === 'list' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:text-white'
               }`}
             >
@@ -161,7 +161,7 @@ export default function CandidatesPage() {
             </button>
             <button
               onClick={() => setViewMode('kanban')}
-              className={`px-3 py-1 rounded-md text-sm font-medium ${
+              className={`px-3 py-1 rounded-md text-sm font-medium cursor-pointer ${
                 viewMode === 'kanban' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:text-white'
               }`}
             >

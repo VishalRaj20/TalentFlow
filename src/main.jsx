@@ -11,13 +11,15 @@ async function enableMocking() {
   await worker.start({ onUnhandledRequest: "bypass" });
 }
 
-initDB().then(() => {
-  const root = createRoot(document.getElementById("root"));
-  root.render(
-    <React.StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </React.StrictMode>
-  );
+enableMocking().then(() => {
+  initDB().then(() => {
+    const root = createRoot(document.getElementById("root"));
+    root.render(
+      <React.StrictMode>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </React.StrictMode>
+    );
+  });
 });
