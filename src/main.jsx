@@ -6,11 +6,9 @@ import "./index.css"
 
 import { initDB } from "./db/indexedDB";
 
-if (import.meta.env.DEV) {
-  import("./mocks/browser").then(({ worker }) => {
-    worker.start({ onUnhandledRequest: "bypass" });
-    console.log("[MSW] worker started");
-  });
+async function enableMocking() {
+  const { worker } = await import("./mocks/browser");
+  await worker.start({ onUnhandledRequest: "bypass" });
 }
 
 initDB().then(() => {
